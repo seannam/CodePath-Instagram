@@ -25,6 +25,33 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onLoginBUtton(_ sender: Any) {
+//        let username = usernameLabel.text ?? ""
+//        let password = passwordLabel.text ?? ""
+//        
+//        PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) -> Void in
+//            if let error = error {
+//                print("User login failed.")
+//                print(error.localizedDescription)
+//            } else {
+//                print("User logged in successfully")
+//                // display view controller that needs to shown after successful login
+//            }
+//        }
+        let username = usernameTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
+            if let error = error {
+                print("[DEBUG] User \(username) login failed!")
+            } else {
+                print("[DEBUG] User \(username) login success!")
+            }
+        }
+        //PFUser.logIn(withUsername: username, password) { (user: PFUser?, error: Error?) in
+//            if let error = error {
+//                print("[DEBUG] User login failed.")
+//                print(error.)
+//            }
     }
 
     @IBAction func onSignUpButton(_ sender: Any) {
@@ -33,37 +60,23 @@ class ViewController: UIViewController {
         print(usernameTextField.text!)
         print(passwordTextField.text!)
         
-//        let username = "snam@test.com"
-//        let password = "123456789"
-        
-//        print(username)
-//        print(password)
-        
         newUser.username = usernameTextField.text!
         newUser.email = usernameTextField.text!
         newUser.password = passwordTextField.text!
         
-//        newUser.username = username
-//        newUser.email = username
-//        newUser.password = password
-        
         newUser.signUpInBackground { (success: Bool, error: Error?) in
+            // if error == nil{
             if success {
                 print("[DEBUG] built user with email: \(newUser.email!)")
+                
+                
+                
             } else{
                 print("[DEBUG] failed to create user")
                 print(error?.localizedDescription)
             }
         }
-//        
-//        newUser.signUpInBackground { (success: Bool, error: Error?) -> Void in
-//            if success {
-//                print("[DEBUG] built user with email: \(newUser.email!)")
-//            } else {
-//                print("[DEBUG] failed to create user")
-//                print(error!.localizedDescription)
-//            }
-//        }
+
     }
 }
 
