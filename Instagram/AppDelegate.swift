@@ -24,6 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.server = "https://instagram-parse-codepath.herokuapp.com/parse"
         }))
         
+        if PFUser.current() != nil {
+            print("[DEBUG] \(PFUser.current()?.username!)")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            //let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+            
+            //window?.rootViewController = tabBarController
+        }
+        
         return true
     }
 

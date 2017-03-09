@@ -13,6 +13,8 @@
 		C73D90661E6F50CE0029BE84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73D90641E6F50CE0029BE84 /* Main.storyboard */; };
 		C73D90681E6F50CE0029BE84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C73D90671E6F50CE0029BE84 /* Assets.xcassets */; };
 		C73D906B1E6F50CE0029BE84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73D90691E6F50CE0029BE84 /* LaunchScreen.storyboard */; };
+		C791B08B1E7147E1001B85C7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B08A1E7147E0001B85C7 /* PostCell.swift */; };
+		C791B08E1E714FD5001B85C7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B08D1E714FD5001B85C7 /* Post.swift */; };
 		C7E306541E6FD3BE0050A9AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E306531E6FD3BE0050A9AE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		C73D90671E6F50CE0029BE84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C73D906A1E6F50CE0029BE84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C73D906C1E6F50CE0029BE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C791B08A1E7147E0001B85C7 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		C791B08D1E714FD5001B85C7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		C7E306531E6FD3BE0050A9AE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +84,8 @@
 		C73D905F1E6F50CE0029BE84 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				C791B08C1E714FC6001B85C7 /* Models */,
+				C791B0891E7147C8001B85C7 /* Views */,
 				C7E306521E6FD37E0050A9AE /* View Controllers */,
 				C73D90601E6F50CE0029BE84 /* AppDelegate.swift */,
 				C73D90641E6F50CE0029BE84 /* Main.storyboard */,
@@ -88,6 +94,22 @@
 				C73D906C1E6F50CE0029BE84 /* Info.plist */,
 			);
 			path = Instagram;
+			sourceTree = "<group>";
+		};
+		C791B0891E7147C8001B85C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C791B08A1E7147E0001B85C7 /* PostCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C791B08C1E714FC6001B85C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C791B08D1E714FD5001B85C7 /* Post.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C7E306521E6FD37E0050A9AE /* View Controllers */ = {
@@ -224,7 +246,9 @@
 			files = (
 				C73D90631E6F50CE0029BE84 /* ViewController.swift in Sources */,
 				C73D90611E6F50CE0029BE84 /* AppDelegate.swift in Sources */,
+				C791B08E1E714FD5001B85C7 /* Post.swift in Sources */,
 				C7E306541E6FD3BE0050A9AE /* HomeViewController.swift in Sources */,
+				C791B08B1E7147E1001B85C7 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,18 +25,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onLoginBUtton(_ sender: Any) {
-//        let username = usernameLabel.text ?? ""
-//        let password = passwordLabel.text ?? ""
-//        
-//        PFUser.logInWithUsernameInBackground(username, password: password) { (user: PFUser?, error: NSError?) -> Void in
-//            if let error = error {
-//                print("User login failed.")
-//                print(error.localizedDescription)
-//            } else {
-//                print("User logged in successfully")
-//                // display view controller that needs to shown after successful login
-//            }
-//        }
+
         let username = usernameTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
@@ -45,13 +34,11 @@ class ViewController: UIViewController {
                 print("[DEBUG] User \(username) login failed!")
             } else {
                 print("[DEBUG] User \(username) login success!")
+                
+                self.segueToHome()
             }
         }
-        //PFUser.logIn(withUsername: username, password) { (user: PFUser?, error: Error?) in
-//            if let error = error {
-//                print("[DEBUG] User login failed.")
-//                print(error.)
-//            }
+
     }
 
     @IBAction func onSignUpButton(_ sender: Any) {
@@ -69,7 +56,7 @@ class ViewController: UIViewController {
             if success {
                 print("[DEBUG] built user with email: \(newUser.email!)")
                 
-                
+                self.segueToHome()
                 
             } else{
                 print("[DEBUG] failed to create user")
@@ -77,6 +64,16 @@ class ViewController: UIViewController {
             }
         }
 
+    }
+    
+    func segueToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
+
+        let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//        let homeVC = tabBarController.childViewControllers.first as! HomeViewController
+
+        self.present(tabBarController, animated: true, completion: nil)
     }
 }
 
