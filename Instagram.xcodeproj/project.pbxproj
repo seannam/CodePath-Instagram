@@ -15,6 +15,7 @@
 		C73D906B1E6F50CE0029BE84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C73D90691E6F50CE0029BE84 /* LaunchScreen.storyboard */; };
 		C791B08B1E7147E1001B85C7 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B08A1E7147E0001B85C7 /* PostCell.swift */; };
 		C791B08E1E714FD5001B85C7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B08D1E714FD5001B85C7 /* Post.swift */; };
+		C791B0901E715582001B85C7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C791B08F1E715582001B85C7 /* ProfileViewController.swift */; };
 		C7E306541E6FD3BE0050A9AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E306531E6FD3BE0050A9AE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		C73D906C1E6F50CE0029BE84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C791B08A1E7147E0001B85C7 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		C791B08D1E714FD5001B85C7 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		C791B08F1E715582001B85C7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C7E306531E6FD3BE0050A9AE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 			children = (
 				C73D90621E6F50CE0029BE84 /* ViewController.swift */,
 				C7E306531E6FD3BE0050A9AE /* HomeViewController.swift */,
+				C791B08F1E715582001B85C7 /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C791B0901E715582001B85C7 /* ProfileViewController.swift in Sources */,
 				C73D90631E6F50CE0029BE84 /* ViewController.swift in Sources */,
 				C73D90611E6F50CE0029BE84 /* AppDelegate.swift in Sources */,
 				C791B08E1E714FD5001B85C7 /* Post.swift in Sources */,

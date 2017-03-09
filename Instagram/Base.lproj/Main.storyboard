@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -207,7 +207,7 @@
         <!--Profile-->
         <scene sceneID="pGr-vk-FTb">
             <objects>
-                <viewController id="2V7-jt-Mk9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="2V7-jt-Mk9" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lQL-R5-5mK"/>
                         <viewControllerLayoutGuide type="bottom" id="tfH-IU-o3z"/>
@@ -220,6 +220,9 @@
                                 <rect key="frame" x="136" y="269" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogoutButton:" destination="2V7-jt-Mk9" eventType="touchUpInside" id="shh-Hc-bth"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             //let homeVC = storyboard.instantiateViewController(withIdentifier: "HomeViewController")
             
-            //window?.rootViewController = tabBarController
+            window?.rootViewController = tabBarController
         }
         
         return true
