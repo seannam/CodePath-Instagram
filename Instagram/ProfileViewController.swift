@@ -23,9 +23,9 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func onLogoutButton(_ sender: Any) {
-        print("[DEBUG] \(PFUser.current()) logged out")
+        //print("[DEBUG] \(PFUser.current()) logged out")
         PFUser.logOut()
-        print("[DEBUG] \(PFUser.current()) logged out")
+        //print("[DEBUG] \(PFUser.current()) logged out")
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController")

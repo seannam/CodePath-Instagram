@@ -77,29 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-1980" y="-220"/>
         </scene>
-        <!--green-->
-        <scene sceneID="dWH-DX-a8A">
-            <objects>
-                <viewController id="SJ3-Qj-RWq" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QRI-yn-ii3"/>
-                        <viewControllerLayoutGuide type="bottom" id="9yc-oe-jcw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HAy-nj-Wu5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.31146197409999998" green="0.80389753639999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="green" id="M2b-mn-5Nx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OAY-AF-esW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1026" y="1281"/>
-        </scene>
-        <!--orange-->
+        <!--Capture-->
         <scene sceneID="Twl-xR-k5j">
             <objects>
-                <viewController id="Qs6-hl-6e0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CaptureViewController" id="Qs6-hl-6e0" customClass="CaptureViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9QM-6i-1bm"/>
                         <viewControllerLayoutGuide type="bottom" id="vQV-o0-aaJ"/>
@@ -107,13 +88,52 @@
                     <view key="view" contentMode="scaleToFill" id="d8y-wV-dMr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.49234154540000002" blue="0.97436300850000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRW-fz-8Tw">
+                                <rect key="frame" x="136" y="414" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="onSubmitPostButton:" destination="Qs6-hl-6e0" eventType="touchUpInside" id="XPh-Wc-CZD"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bZD-cQ-pOR">
+                                <rect key="frame" x="32" y="269" width="254" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="captionLabelEditingDidEnd:" destination="Qs6-hl-6e0" eventType="editingDidEnd" id="WpB-0C-fQZ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCZ-H7-QnK">
+                                <rect key="frame" x="25" y="33" width="270" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.87162549079999996" green="0.87162549079999996" blue="0.87162549079999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Tap to select or take a photo">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onChoosePicButton:" destination="Qs6-hl-6e0" eventType="touchUpInside" id="az2-tY-SwQ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-NW-yXU">
+                                <rect key="frame" x="0.0" y="33" width="320" height="205"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="orange" id="zl2-Q9-BnA"/>
+                    <tabBarItem key="tabBarItem" title="Capture" id="zl2-Q9-BnA"/>
+                    <connections>
+                        <outlet property="captionField" destination="bZD-cQ-pOR" id="oew-pQ-vOu"/>
+                        <outlet property="postImageView" destination="tlG-NW-yXU" id="Tam-rv-TGS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSH-pZ-tF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-662" y="-133"/>
+            <point key="canvasLocation" x="-663.75" y="-133.09859154929578"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="X35-2t-nP0">
@@ -127,7 +147,6 @@
                     <connections>
                         <segue destination="apx-e2-pcR" kind="relationship" relationship="viewControllers" id="Nao-fq-Klc"/>
                         <segue destination="Qs6-hl-6e0" kind="relationship" relationship="viewControllers" id="0eh-Zy-C5a"/>
-                        <segue destination="SJ3-Qj-RWq" kind="relationship" relationship="viewControllers" id="Cne-h4-aNI"/>
                         <segue destination="2V7-jt-Mk9" kind="relationship" relationship="viewControllers" id="DJ1-Eb-x5D"/>
                     </connections>
                 </tabBarController>
@@ -156,7 +175,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="404"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0IU-on-2UK" id="Tr3-9E-clO">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="404"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2RP-1M-b6k">
