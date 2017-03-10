@@ -76,8 +76,10 @@ class CaptureViewController: UIViewController {
     
     @IBAction func onSubmitPostButton(_ sender: Any) {
         let caption = captionField.text
-        
+        print("[DEBUG] resizeimage \(self.resizeImage) with caption \(caption)")
+
         Post.postUserImage(image: resizeImage, withCaption: caption) {(success: Bool, error: Error?) in
+            
             if success {
                 print("[DEBUG] successfully posted image \(self.resizeImage) with caption \(caption)")
                 // Dismiss UIImagePickerController to go back to your original view controller
@@ -101,18 +103,18 @@ extension CaptureViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         postImageView.image = originalImage
         print("[DEBUG] imagePickerController - choose \(originalImage)")
-//        let size = originalImage.size
-//        
-//        // Do something with the images (based on your use case)
-//        
-//        let smallerWidth = size.width * 0.7
-//        let smallerHeight = size.height * 0.7
-//        
-//        var smallerSize = CGSize()
-//        smallerSize.width = smallerWidth
-//        smallerSize.height = smallerHeight
-//        
-//        self.resizeImage = resize(image: originalImage, newSize: smallerSize)
+        let size = originalImage.size
+        
+        // Do something with the images (based on your use case)
+        
+        let smallerWidth = size.width * 0.7
+        let smallerHeight = size.height * 0.7
+        
+        var smallerSize = CGSize()
+        smallerSize.width = smallerWidth
+        smallerSize.height = smallerHeight
+        
+        self.resizeImage = resize(image: originalImage, newSize: smallerSize)
         
         dismiss(animated: true, completion: nil)
     }
