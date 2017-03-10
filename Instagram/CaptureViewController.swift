@@ -41,7 +41,7 @@ class CaptureViewController: UIViewController {
     }
     
     @IBAction func captionLabelEditingDidEnd(_ sender: Any) {
-        print("[DEBUG] \(captionField.text)")
+        print("[DEBUG] caption \(captionField.text)")
     }
 
     /*
@@ -85,6 +85,22 @@ class CaptureViewController: UIViewController {
                 // Dismiss UIImagePickerController to go back to your original view controller
                 //let homeVC = self.parent?.childViewControllers.first
                 self.dismiss(animated: true, completion: nil)
+                
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                
+                var tabBar = UITabBarController()
+                tabBar = self.tabBarController!
+                
+                print("[DEBUG] tabBarController.selectedIndex = \(tabBar.selectedIndex)")
+                
+                tabBar.selectedIndex = 0
+                
+                print("[DEBUG] tabBarController.selectedIndex = \(tabBar.selectedIndex)")
+                
+                self.captionField.text = ""
+                self.postImageView.image = nil
+                
                 //self.present(homeVC!, animated: true, completion: nil)
                 
             } else {
