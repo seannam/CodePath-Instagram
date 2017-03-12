@@ -86,9 +86,6 @@ class CaptureViewController: UIViewController {
                 //let homeVC = self.parent?.childViewControllers.first
                 self.dismiss(animated: true, completion: nil)
                 
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                
                 var tabBar = UITabBarController()
                 tabBar = self.tabBarController!
                 
@@ -100,9 +97,7 @@ class CaptureViewController: UIViewController {
                 
                 self.captionField.text = ""
                 self.postImageView.image = nil
-                
-                //self.present(homeVC!, animated: true, completion: nil)
-                
+                                
             } else {
                 print("[DEBUG] error while trying to post image \(self.resizeImage) with caption \(caption)")
             }

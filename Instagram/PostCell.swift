@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class PostCell: UITableViewCell {
     
@@ -17,10 +18,12 @@ class PostCell: UITableViewCell {
     
     @IBOutlet weak var commentLabel: UILabel!
     
-    var post: Post! {
+    var post: PFObject? {
         didSet {
-            self.usernameLabel.text = post?.username
-            self.commentLabel.text = post?.comment
+            //self.usernameLabel.text = post?.username
+            //self.commentLabel.text = post?.comment
+            //self.postImageView.image = post?.postImage
+            print(post?["comment"]!)
         }
     }
     

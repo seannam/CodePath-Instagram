@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController {
 
@@ -16,7 +17,29 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.postsTableView.delegate = self
+        self.postsTableView.dataSource = self
+        
+        var query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                for post in posts {
+                    print(post)
+                    //posts?.append(PFObject as? Post)
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+            
+        }
+        
+        self.postsTableView.reloadData()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -25,7 +48,23 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func getPosts() {
+        var query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                for post in posts {
+                    print(post)
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
+            
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -45,9 +84,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = postsTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         
+        let cell = postsTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
         let post = posts[indexPath.row]
+        
+        print("[DEBUG] post = \(post)")
+        print("[DEBUG] post comment = \(post.comment)")
+        
         cell.post = post
         
         return cell

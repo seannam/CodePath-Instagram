@@ -20,7 +20,9 @@ class Post: NSObject {
     var postUrl: URL?
     var profilePicUrl: URL?
     
-    
+//    init() {
+//        
+//    }
     /**
      Method to add a user post to Parse (uploading image file)
      
