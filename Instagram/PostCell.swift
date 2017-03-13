@@ -22,6 +22,7 @@ class PostCell: UITableViewCell {
     var post: PFObject? {
         didSet {
             self.commentLabel.text = post?["caption"] as? String
+            self.usernameLabel.text = post?["author"] as? String
             
             if let postImage = post?["media"] as? PFFile {
                 postImage.getDataInBackground(block: { (imageData: Data?, error: Error?) in

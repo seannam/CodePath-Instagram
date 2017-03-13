@@ -18,8 +18,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("[DEBUG] HomeViewControlller")
-        
         self.postsTableView.delegate = self
         self.postsTableView.dataSource = self
         
@@ -41,6 +39,7 @@ class HomeViewController: UIViewController {
         var query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
+        //query.whereKey("author", equalTo: PFUser.current())
         query.limit = 20
         
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
