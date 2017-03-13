@@ -13,32 +13,17 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var postsTableView: UITableView!
     
-    var posts: [Post]!
+    var posts: [PFObject]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("[DEBUG] HomeViewControlller")
+        
         self.postsTableView.delegate = self
         self.postsTableView.dataSource = self
         
-        var query = PFQuery(className: "Post")
-        query.order(byDescending: "createdAt")
-        query.includeKey("author")
-        query.limit = 20
-        
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-            if let posts = posts {
-                for post in posts {
-                    print(post)
-                    //posts?.append(PFObject as? Post)
-                }
-            } else {
-                print(error?.localizedDescription)
-            }
-            
-        }
-        
-        self.postsTableView.reloadData()
+        getPosts()
         
         // Do any additional setup after loading the view.
     }
@@ -54,11 +39,10 @@ class HomeViewController: UIViewController {
         query.includeKey("author")
         query.limit = 20
         
-        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
             if let posts = posts {
-                for post in posts {
-                    print(post)
-                }
+                self.posts = posts
+                self.postsTableView.reloadData()
             } else {
                 print(error?.localizedDescription)
             }
@@ -86,12 +70,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = postsTableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
-        let post = posts[indexPath.row]
-        
-        print("[DEBUG] post = \(post)")
-        print("[DEBUG] post comment = \(post.comment)")
+        let post = self.posts[indexPath.row]
         
         cell.post = post
+        
+        print(post)
         
         return cell
         

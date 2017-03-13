@@ -44,9 +44,6 @@ class ViewController: UIViewController {
     @IBAction func onSignUpButton(_ sender: Any) {
         let newUser = PFUser()
         
-        print(usernameTextField.text!)
-        print(passwordTextField.text!)
-        
         newUser.username = usernameTextField.text!
         newUser.email = usernameTextField.text!
         newUser.password = passwordTextField.text!
@@ -57,7 +54,6 @@ class ViewController: UIViewController {
                 print("[DEBUG] built user with email: \(newUser.email!)")
                 
                 self.segueToHome()
-                
             } else{
                 print("[DEBUG] failed to create user")
                 print(error?.localizedDescription)

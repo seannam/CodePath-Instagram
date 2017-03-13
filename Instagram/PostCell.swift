@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class PostCell: UITableViewCell {
     
@@ -20,10 +21,15 @@ class PostCell: UITableViewCell {
     
     var post: PFObject? {
         didSet {
-            //self.usernameLabel.text = post?.username
-            //self.commentLabel.text = post?.comment
-            //self.postImageView.image = post?.postImage
-            print(post?["comment"]!)
+            self.commentLabel.text = post?["caption"] as? String
+            
+            if let postImage = post?["media"] as? PFFile {
+                postImage.getDataInBackground(block: { (imageData: Data?, error: Error?) in
+                    if let imageData = imageData {
+                        self.postImageView.image = UIImage.init(data: imageData)
+                    }
+                })
+            }
         }
     }
     
